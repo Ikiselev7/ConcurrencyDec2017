@@ -21,7 +21,7 @@ public class Worker implements Executor {
 	}
 
 	private void processTasks() {
-		while (true) {
+		while (!Thread.currentThread().isInterrupted()) {
 			Runnable task = null;
 			synchronized (mutex) {
 				while (tasks.isEmpty()) {

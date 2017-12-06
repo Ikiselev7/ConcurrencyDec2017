@@ -24,6 +24,11 @@ public class UseWorker {
 			Utils.pause(1000);
 			System.out.println("three");
 		});
+
+		worker.execute(() -> {
+			System.out.println("Poison lambda");
+			Thread.currentThread().interrupt();
+		});
 		
 		System.out.println("main finished");
 		
